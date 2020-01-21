@@ -51,7 +51,7 @@ void draw() {
     background(0);
     image(bg, 0, -70, width, height+50);
     if (wkey && leftJump) {
-      leftSlime.addImpulse(0, -6000);
+      leftSlime.addImpulse(0, -5000);
       leftJump = false;
     }
     if (akey) leftSlime.addImpulse(-150, 0);
@@ -60,7 +60,7 @@ void draw() {
     if (skey) leftSlime.addImpulse(0, 1000);
 
     if (up && rightJump) {
-      rightSlime.addImpulse(0, -6000);
+      rightSlime.addImpulse(0, -5000);
       rightJump = false;
     }
     if (left) rightSlime.addImpulse(-150, 0);
@@ -110,8 +110,8 @@ void draw() {
       }
     }
     
-    if(rscore >= 1) mode = 4;
-    if(lscore >= 1) mode = 5; 
+    if(rscore >= 5) mode = 4;
+    if(lscore >= 5) mode = 5; 
 
 
     println(lscore);
@@ -128,14 +128,14 @@ void draw() {
   } else if (mode == 2) {
     rscore();
     timer++;
-    if(timer >= 60) {
+    if(timer >= 10) {
     mode = 1;
     timer = 0;
     }
   } else if (mode == 3) {
     lscore();
     timer++;
-    if(timer >= 60) {
+    if(timer >= 10) {
     mode = 1;
     timer = 0;
     }
@@ -161,18 +161,18 @@ void lscore() {
 
 void rwin() {
   background(green);
-  image(rwin, -150, 0, 666*2.4, 375*2.4);
+  image(rwin, -120, 0, width*1.1, height*1.1);
   fill(blue);
-  text("PLAYER 2", width/1.8, height/2 + 150);
-  text("WINS", width/1.8, height/2 + 270);
+  text("PLAYER 2", width/1.83, height/2 + 170);
+  text("WINS", width/1.83, height/2 + 290);
 }
 
 void lwin() {
   background(green);
-  image(lwin, 0, 0, 666*2.4, 375*2.4);
+  image(lwin, 70, 0, width*1.05, height);
   fill(blue);
-  text("PLAYER", width/24, height/2 - 60);
-  text("1 WINS", width/24, height/2 + 60);
+  text("PLAYER", width/26, height/2 - 60);
+  text("1 WINS", width/26, height/2 + 60);
 }
 
 void keyPressed() {
@@ -195,4 +195,13 @@ void keyReleased() {
   if (key == 's' || key == 'S') skey  = false;
   if (key == 'a' || key == 'A') akey = false;
   if (key == 'd' || key == 'D') dkey = false;
+}
+
+void mousePressed() {
+  if(mode == 4 || mode == 5){
+    mode = 1;
+    setup();
+    lscore = 0;
+    rscore = 0;
+  }
 }
