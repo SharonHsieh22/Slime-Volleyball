@@ -82,3 +82,20 @@ void net() {
   net.setGrabbable(false);
   world.add(net);
 }
+
+void ceiling() {
+ ceiling = new FBox(width, 100);
+ ceiling.setPosition(width/2, -50);
+ 
+   //set visuals
+  ceiling.setNoStroke();
+  ceiling.setFillColor(green);
+
+  //set physical properties
+  ceiling.setStatic(true);
+  ceiling.setDensity(0.2);
+  ceiling.setFriction(1);
+  ceiling.setRestitution(0.25);
+  ceiling.setGrabbable(false);
+  world.add(ceiling);
+}

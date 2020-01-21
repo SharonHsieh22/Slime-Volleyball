@@ -3,10 +3,11 @@ void leftSlime() {
   leftSlime.setPosition(width/4, height-250);
 
   //set visuals
-  leftSlime.setNoStroke();
-  colorMode(HSB);
-  leftSlime.setFillColor(color(random(0, 255), 120, 240));
-  colorMode(RGB);
+  leftSlime.attachImage(iwa);
+  //leftSlime.setNoStroke();
+  //colorMode(HSB);
+  //leftSlime.setFillColor(color(random(0, 255), 120, 240));
+  //colorMode(RGB);
 
   //set physical properties
   leftSlime.setStatic(false);
@@ -23,10 +24,11 @@ void rightSlime() {
   rightSlime.setPosition(width - width/4, height-250);
 
   //set visuals
-  rightSlime.setNoStroke();
-  colorMode(HSB);
-  rightSlime.setFillColor(color(random(0, 255), 120, 240));
-  colorMode(RGB);
+  rightSlime.attachImage(tooru);
+  //rightSlime.setNoStroke();
+  //colorMode(HSB);
+  //rightSlime.setFillColor(color(random(0, 255), 120, 240));
+  //colorMode(RGB);
 
   //set physical properties
   rightSlime.setStatic(false);
